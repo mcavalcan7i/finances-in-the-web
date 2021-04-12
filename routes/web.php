@@ -5,7 +5,7 @@ use \App\Http\Controllers\LoginController;
 use \App\Http\Controllers\IndexController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MovimentacoesController;
-use \App\Http\Controllers\CriptoinvestimentoCroller;
+use \App\Http\Controllers\CriptoinvestimentoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Route::middleware('autenticacao')->prefix('app')->group(function() {
     Route::post('/movimentacoes/visualizacao', [MovimentacoesController::class, "visualizacaoParams"])->name('app.movimentacao.visualizacaoParams');
 
     // Rota para renderizar o formulário de criptoinvestimento
-    Route::get('/criptoinvestimento', [CriptoinvestimentoCroller::class, "index"])->name("app.criptoinvestimento.index"); 
-    Route::post('/criptoinvestimento', [CriptoinvestimentoCroller::class, "createCriptoInvestimento"])->name("app.criptoinvestimento.create"); 
+    Route::get('/criptoinvestimento', [CriptoinvestimentoController::class, "index"])->name("app.criptoinvestimento.index"); 
+    Route::post('/criptoinvestimento', [CriptoinvestimentoController::class, "createCriptoInvestimento"])->name("app.criptoinvestimento.create"); 
 
 });

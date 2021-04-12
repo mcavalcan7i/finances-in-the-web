@@ -8,6 +8,9 @@
             @csrf
             <input type="hidden" name="user_id" value="{{ $_SESSION['id_usuario'] }}">
             <input type="number" name="valor_real" placeholder="Digite o valor desse invesimento em R$">
+            {{ $errors->has('valor_real') ? $errors->first() : '' }}
+            <input type="date" name="data_criptoinvestimento">
+            {{ $errors->has('data_criptoinvestimento') ? $errors->first() : '' }}
             <select name="moeda">
                 <option value="">Informe o tipo da movimentação</option>
                 <option value="BTC">Bitcoin</option>
@@ -15,6 +18,7 @@
                 <option value="LTC">Litecoin</option>
                 <option value="LINK">Chainlink</option>
             </select>
+            {{ $errors->has('moeda') ? $errors->first() : '' }}
             <button class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
