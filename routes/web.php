@@ -6,6 +6,7 @@ use \App\Http\Controllers\IndexController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MovimentacoesController;
 use \App\Http\Controllers\CriptoinvestimentoController;
+use App\Models\Movimentacoes;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,8 +47,20 @@ Route::middleware('autenticacao')->prefix('app')->group(function() {
     Route::get('/movimentacoes/visualizacao', [MovimentacoesController::class, "visualizacao"])->name('app.movimentacao.visualizacao');
     Route::post('/movimentacoes/visualizacao', [MovimentacoesController::class, "visualizacaoParams"])->name('app.movimentacao.visualizacaoParams');
 
-    // Rota para renderizar o formulário de criptoinvestimento
+    // Rota responsável por deletar uma movimentação
+    Route::get('/movimentacoes/excluir/{id}', [MovimentacoesController::class, "excluir"])->name("app.movimentacao.excluir");
+
+    // Rota responsavel por renderizar o formulario para a edição de uma movimentação
+    Route::get('/movimentacoes/editar/{id}', [MovimentacoesController::class, "editar"])->name('app.movimentacao.editar');
+    Route::post('/movimentacoes/editar', [MovimentacoesController::class, "update"])->name('app.movimentacao.update');
+
+    // Rota para renderizar e processar o formulário de criptoinvestimento
     Route::get('/criptoinvestimento', [CriptoinvestimentoController::class, "index"])->name("app.criptoinvestimento.index"); 
     Route::post('/criptoinvestimento', [CriptoinvestimentoController::class, "createCriptoInvestimento"])->name("app.criptoinvestimento.create"); 
+
+    // Rota responsável por renderizar os criptoinvestimentos
+    Route::get('/criptoinvestimento/visualizacao', [CriptoinvestimentoController::class, "visualizacao"])->name('app.criptoinvestimento.visualizacao');
+
+
 
 });

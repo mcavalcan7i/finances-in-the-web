@@ -12,6 +12,11 @@ class CriptoinvestimentoController extends Controller
         return view('app.criptoinvestimentos.criptoinvestimento_index');
     }
 
+    public function visualizacao() {
+        $criptoinvestimentos = Criptoinvestimentos::all();
+        return view('app.criptoinvestimentos.criptoinvestimento_movimentacoes', ['criptoinvestimentos' => $criptoinvestimentos]);
+    }
+
     public function createCriptoInvestimento(Request $request) {
 
         $rules = [

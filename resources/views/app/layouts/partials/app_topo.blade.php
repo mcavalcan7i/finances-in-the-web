@@ -12,6 +12,7 @@
             <li><a href="{{ route('app.movimentacoes.index') }}">Cadastrar Movimentação</a></li>
             <li><a href="{{ route('app.criptoinvestimento.index') }}">Cadastrar Criptoinvestimento</a></li>
             <li><a href="{{ route('app.movimentacao.visualizacao') }}">Visualizar Movimentações</a></li>
+            <li><a href="{{ route('app.criptoinvestimento.visualizacao') }}">Visualizar Criptoinvestimentos</a></li>
         </ul>
     </div>
 </div>

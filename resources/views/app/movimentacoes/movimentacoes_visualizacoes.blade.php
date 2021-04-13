@@ -38,6 +38,8 @@
                         <th>Tipo da movimentação</th>
                         <th>Descrição da Movimentação</th>
                         <th>Data da Movimentação</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
                     </tr>
                 </thead>
                 <tbody class="tbody-classe">
@@ -53,6 +55,9 @@
                             @endif
                             <td>{{ $valor->descricao_movimentacao }}</td>
                             <td>{{ $valor->data_movimentacao }}</td>
+
+                            <td><a href=" {{ route('app.movimentacao.editar', $valor->id) }} " class="btn btn-success">Editar</a></td>
+                            <td><a href=" {{ route('app.movimentacao.excluir', $valor->id) }} " class="btn btn-danger">Excluir</a></td>
                         </tr>
                     @endforeach
                 </tbody>
