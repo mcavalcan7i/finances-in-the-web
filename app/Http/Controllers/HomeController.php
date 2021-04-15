@@ -20,4 +20,9 @@ class HomeController extends Controller
 
         return view('app.home.home', ["informacoes" => $data]);
     }
+
+    public function deslogar() {
+        session_destroy();
+        return redirect()->route('index');
+    }
 }

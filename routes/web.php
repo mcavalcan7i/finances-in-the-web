@@ -37,6 +37,9 @@ Route::middleware('autenticacao')->prefix('app')->group(function() {
     // Metodo /
     Route::get('/home', [HomeController::class, "index"])->name('app.index');
 
+    // Metodo para deslogar
+    Route::get('/deslogar', [HomeController::class, "deslogar"])->name("app.deslogar");
+
     // Rota de Movimentacoes
     
     // Rota para renderizar e processar o formulário de cadastro de movimentação
