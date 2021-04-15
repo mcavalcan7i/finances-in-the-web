@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MovimentacoesExport;
 use Illuminate\Http\Request;
 use \App\Models\Movimentacoes;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class MovimentacoesController extends Controller
 {
@@ -112,6 +115,14 @@ class MovimentacoesController extends Controller
         
         Movimentacoes::find($id)->update($request->all());
         return redirect()->route('app.movimentacao.visualizacao');
+    }
+
+    // Gerar Excel
+    public function export() 
+    {
+        $idUsuario = $_SESSION['id_usuario'];
+        return (new MovimentacoesExport($idUsuario))->download('movimentacoes.xlsx');
+        // return Excel::download(new MovimentacoesExport, 'movimentacoes.xlsx');
     }
 
 }

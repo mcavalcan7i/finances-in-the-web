@@ -26,7 +26,8 @@
                 </select>
                 {{ $errors->has('tipo_busca') ? $errors->first() : '' }}
 
-                <button class="btn btn-light">Pesquisar</button>
+                <button class="btn btn-light">Pesquisar</button><br><br>
+                <a href="{{ route('app.movimentacoes.download') }}" class="btn btn-success">Importar para Excel</a>
             </form>
         </div>
         <div class="baixo">

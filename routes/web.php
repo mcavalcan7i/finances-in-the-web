@@ -50,6 +50,9 @@ Route::middleware('autenticacao')->prefix('app')->group(function() {
     Route::get('/movimentacoes/visualizacao', [MovimentacoesController::class, "visualizacao"])->name('app.movimentacao.visualizacao');
     Route::post('/movimentacoes/visualizacao', [MovimentacoesController::class, "visualizacaoParams"])->name('app.movimentacao.visualizacaoParams');
 
+    // Rota responsável por gerar o excel das movimentações
+    Route::get('/movimentacoes/download', [MovimentacoesController::class, "export"])->name('app.movimentacoes.download');
+
     // Rota responsável por deletar uma movimentação
     Route::get('/movimentacoes/excluir/{id}', [MovimentacoesController::class, "excluir"])->name("app.movimentacao.excluir");
 
