@@ -6,6 +6,7 @@ use \App\Http\Controllers\IndexController;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\MovimentacoesController;
 use \App\Http\Controllers\CriptoinvestimentoController;
+use \App\Http\Controllers\ContatoController;
 use App\Models\Movimentacoes;
 
 /*
@@ -21,6 +22,9 @@ use App\Models\Movimentacoes;
 
 // Rota para renderizar a pagina inicial
 Route::get('/', [IndexController::class, "index"])->name('index');
+
+// Rota para o cadastro de uma credencial + mensagem de contato
+Route::post('/contato', [ContatoController::class, "create"])->name("index.contato");
 
 // Rota para a criação de Usuário
 Route::post('/createuser', [LoginController::class, "createUser"])->name('index.create');

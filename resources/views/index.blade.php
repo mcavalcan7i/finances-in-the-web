@@ -20,7 +20,8 @@
             </div>
             <div class="entre-em-contato">
                 <h2>Entre em contato conosco!</h2>
-                <form action="#" method="post">
+                <form action="{{ route('index.contato') }}" method="post">
+                    @csrf
                     <input type="text" name="nome" placeholder="Nos informe seu nome" class="form-control">
                     <input type="email" name="email" placeholder="Seu email" class="form-control">
                     <textarea class="form-control" name="mensagem" rows="3"></textarea>
